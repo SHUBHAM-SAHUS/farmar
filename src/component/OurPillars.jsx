@@ -20,7 +20,7 @@ const PillarsSection = () => {
         gutterBottom
         sx={{
           fontWeight: 'bold',
-          color: '#2c3e50',
+          color: '#fff',
           mb: 5,
           '&::after': {
             content: '""',

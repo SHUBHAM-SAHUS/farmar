@@ -11,6 +11,7 @@ const Footer = () => {
         padding: '40px 20px',
         color: 'black',
         width: '100%',
+        boxShadow: '0 -5px 15px rgba(0, 0, 0, 0.12)',
       }}
     >
       <Grid container spacing={4}>
@@ -39,7 +40,6 @@ const Footer = () => {
           </Typography>
           <List>
             <ListItem sx={{ padding: 0, marginBottom: '6px' }}>Blog</ListItem>
-           
           </List>
         </Grid>
 
@@ -50,7 +50,6 @@ const Footer = () => {
           </Typography>
           <List>
             <ListItem sx={{ padding: 0, marginBottom: '6px' }}>Help Center</ListItem>
-           
           </List>
         </Grid>
       </Grid>

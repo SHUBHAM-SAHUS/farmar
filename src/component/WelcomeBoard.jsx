@@ -34,25 +34,24 @@ const StatsSection = () => {
     >
       <Typography
         variant='h4'
-        component='h2'
+        align='center'
+        gutterBottom
         sx={{
-          mb: 4,
           fontWeight: 'bold',
-          fontFamily: 'serif',
+          color: '#2c3e50',
+          mb: 5,
+          '&::after': {
+            content: '""',
+            display: 'block',
+            width: '60px',
+            height: '3px',
+            backgroundColor: '#6B8E23',
+            margin: '8px auto 0',
+          },
         }}
       >
-        Welcome To TerraGlebe
+        Welcome to our Website
       </Typography>
-
-      <Box sx={{ mb: 4 }}>
-        <Box
-          sx={{
-            display: 'inline-block',
-            width: '60px',
-            borderTop: '3px solid #5ca545',
-          }}
-        />
-      </Box>
 
       <Grid container spacing={4} justifyContent='center'>
         {statsData.map((item, index) => (

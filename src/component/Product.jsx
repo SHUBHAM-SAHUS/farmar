@@ -27,18 +27,26 @@ const cardData = [
 const CardComponent = () => {
   return (
     <Box sx={{ maxWidth: '1200px', width: '100%', margin: '50px auto' }}>
-      <Typography
-        variant='h4'
-        component='h2'
-        sx={{
-          textAlign: 'center',
-          marginBottom: '30px',
-          fontWeight: 'bold',
-          fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-        }}
-      >
-        Our Products
-      </Typography>
+        <Typography
+             variant='h4'
+             align='center'
+             gutterBottom
+             sx={{
+               fontWeight: 'bold',
+               color: '#2c3e50',
+               mb: 5,
+               '&::after': {
+                 content: '""',
+                 display: 'block',
+                 width: '60px',
+                 height: '3px',
+                 backgroundColor: '#6B8E23',
+                 margin: '8px auto 0',
+               },
+             }}
+           >
+             Our Products
+           </Typography>
       <Box
         sx={{
           display: 'grid',
@@ -59,7 +67,12 @@ const CardComponent = () => {
               borderRadius: '10px',
               overflow: 'hidden',
               position: 'relative',
-              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.25)',
+              boxShadow: '10px 12px 4px rgba(0, 0, 0, 0.46)', // stronger shadow
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease', // smooth hover effect
+              '&:hover': {
+                transform: 'translateY(-8px)', // subtle lift on hover
+                boxShadow: '0 12px 13px rgba(0, 0, 0, 0.3)', // deeper shadow on hover
+              },
             }}
           >
             <CardMedia

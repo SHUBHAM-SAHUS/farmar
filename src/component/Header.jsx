@@ -1,7 +1,8 @@
-'use client'; 
+'use client';
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,66 +10,118 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const pages = ['Homepage', 'About Us', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const aboutItems = ['Our Team', 'Our Story', 'Careers'];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElAbout, setAnchorElAbout] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleAboutOpen = (event) => {
+    setAnchorElAbout(event.currentTarget);
+  };
+
+  const handleAboutClose = () => {
+    setAnchorElAbout(null);
   };
 
   return (
     <AppBar
-      position='fixed' 
-      elevation={0} 
+      position='fixed'
+      elevation={0}
       sx={{
-        backgroundColor: '#ffffff', 
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.47)', 
-        color: '#000', 
+        backgroundColor: '#ffffff',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.47)',
+        color: 'var(--grey)',
       }}
     >
       <Container maxWidth='xl'>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+          {/* LOGO IMAGE */}
           <Link href='/' passHref>
-            <Typography
-              variant='h6'
-              noWrap
-              component='a'
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              LOGO
-            </Typography>
+            <Box component='a' sx={{ display: 'flex', alignItems: 'center' }}>
+              <Image src='/assets/MainLogo.webp' alt='Logo' width={120} height={60} priority />
+            </Box>
           </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* Center Nav Items for Desktop */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3, justifyContent: 'center', flexGrow: 1 }}>
+            {pages.map((page) => {
+              if (page === 'About Us') {
+                return (
+                  <Box key={page}>
+                    <Button
+                      onClick={handleAboutOpen}
+                      sx={{
+                        my: 2,
+                        color: 'var(--grey)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {page}
+                      <ArrowDropDownIcon />
+                    </Button>
+                    <Menu
+                      anchorEl={anchorElAbout}
+                      open={Boolean(anchorElAbout)}
+                      onClose={handleAboutClose}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'left',
+                      }}
+                    >
+                      {aboutItems.map((item) => (
+                        <MenuItem key={item} onClick={handleAboutClose}>
+                          <Link href='/' passHref>
+                            <Typography textAlign='center' sx={{ color: 'var(--grey)', textDecoration: 'none' }}>
+                              {item}
+                            </Typography>
+                          </Link>
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </Box>
+                );
+              } else {
+                return (
+                  <Link key={page} href='/' passHref>
+                    <Button
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        my: 2,
+                        color: 'var(--grey)',
+                        display: 'block',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {page}
+                    </Button>
+                  </Link>
+                );
+              }
+            })}
+          </Box>
+
+          {/* Hamburger Menu for Mobile */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size='large'
               aria-label='open navigation menu'
@@ -77,7 +130,7 @@ function Header() {
               onClick={handleOpenNavMenu}
               color='inherit'
             >
-            
+              {/* You can place a menu icon here, like <MenuIcon /> */}
             </IconButton>
             <Menu
               id='menu-appbar'
@@ -97,73 +150,9 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <Link href='/' passHref>
-            <Typography
-              variant='h5'
-              noWrap
-              component='a'
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              LOGO
-            </Typography>
-          </Link>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: '#000',
-                  display: 'block',
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar-user'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
+                  <Typography textAlign='center' sx={{ color: 'var(--grey)' }}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

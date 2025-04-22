@@ -14,12 +14,12 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Menu as MenuIcon } from "lucide-react";
 
 const pages = [
-  "Homepage",
-  "About Us",
-  "Products",
-  "IPM chilly",
-  "PR & Media",
-  "Contact Us",
+  { text: "Homepage", path: "/" },
+  { text: "About Us", path: "/" },
+  { text: "Products", path: "/products" },
+  { text: "IPM chilly", path: "/" },
+  { text: "PR & Media", path: "/" },
+  { text: "Contact Us", path: "/contact-us" },
 ];
 const aboutItems = ["Our Team", "Our Story", "Careers"];
 
@@ -53,15 +53,15 @@ function Header() {
           {/* Nav Items for Desktop */}
           <nav className="hidden md:flex gap-4">
             {pages.map((page) => {
-              if (page === "About Us") {
+              if (page.text === "About Us") {
                 return (
-                  <DropdownMenu key={page} className="z-[1001]">
+                  <DropdownMenu key={page.text} className="z-[1001]">
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
                         className="flex items-center font-semibold text-base text-gray-700  hover:text-green-700 transition-colors"
                       >
-                        {page}
+                        {page.text}
                         <svg
                           width="20"
                           height="20"
@@ -96,12 +96,12 @@ function Header() {
                 );
               } else {
                 return (
-                  <Link key={page} href="/" passHref>
+                  <Link key={page.text} href={page.path} passHref>
                     <Button
                       variant="ghost"
                       className="font-semibold text-base text-gray-700 hover:text-green-700 transition-colors"
                     >
-                      {page}
+                      {page.text}
                     </Button>
                   </Link>
                 );
@@ -123,15 +123,15 @@ function Header() {
               <SheetContent side="right" className="p-0">
                 <nav className="flex flex-col gap-2 mt-8 px-4">
                   {pages.map((page) => {
-                    if (page === "About Us") {
+                    if (page.text === "About Us") {
                       return (
-                        <DropdownMenu key={page}>
+                        <DropdownMenu key={page.text}>
                           <DropdownMenuTrigger asChild>
                             <Button
                               variant="ghost"
                               className="flex items-center font-semibold text-lg text-[var(--grey)] w-full justify-start"
                             >
-                              {page}
+                              {page.text}
                               <svg
                                 width="20"
                                 height="20"
@@ -163,12 +163,12 @@ function Header() {
                       );
                     } else {
                       return (
-                        <Link key={page} href="/" passHref>
+                        <Link key={page.text} href={page.path} passHref>
                           <Button
                             variant="ghost"
                             className="font-semibold text-lg text-[var(--grey)] w-full justify-start"
                           >
-                            {page}
+                            {page.text}
                           </Button>
                         </Link>
                       );

@@ -1,11 +1,15 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const images = ['/assets/SliderImage01.JPG', '/assets/SliderImage02.JPG', '/assets/SliderImage03.JPG'];
+const images = [
+  "/assets/SliderImage01.JPG",
+  "/assets/SliderImage02.JPG",
+  "/assets/SliderImage03.JPG",
+];
 
 const DashboardSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -28,10 +32,17 @@ const DashboardSlider = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center py-8">
-      <div className="relative w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl h-[200px] sm:h-[260px] md:h-[320px] lg:h-[500px] rounded-3xl overflow-hidden shadow-xl">
+    <div className="w-full flex flex-col justify-center items-center md:pb-8 md:pt-4 md:px-4 p-2">
+      <div
+        className="relative w-full xl:w-full h-[500px] sm:h-[560px] md:h-[650px] lg:h-[500px] md:rounded-3xl rounded-xl overflow-hidden shadow-b-xl bg-green-200"
+        style={{ boxShadow: "0 20px 50px 0px rgba(0, 0, 0, 0.6)" }}
+      >
         {/* Sliding Image */}
-        <div className={`w-full h-full transition-opacity duration-500 ${fade ? 'opacity-60' : 'opacity-100'}`}>
+        <div
+          className={`w-full h-full transition-opacity duration-500 ${
+            fade ? "opacity-60" : "opacity-100"
+          }`}
+        >
           <Image
             src={images[current]}
             alt={`slide-${current}`}
@@ -62,6 +73,11 @@ const DashboardSlider = () => {
           <ChevronRight className="text-green-700" />
         </Button>
       </div>
+      {/* shadow bottom */}
+      {/* <div
+        className=" bottom-0 left-0 w-full h-6 pointer-events-none z-10"
+        style={{ boxShadow: "0 16px 32px 0 rgba(0,0,0,0.13)" }}
+      /> */}
     </div>
   );
 };

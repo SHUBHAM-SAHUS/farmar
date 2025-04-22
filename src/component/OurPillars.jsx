@@ -33,7 +33,7 @@ const PillarsSection = () => {
     >
       <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto">
         <div className="relative mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-2 drop-shadow-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 drop-shadow-lg text-white hover:text-green-100 transition-colors duration-300">
             Our Pillars
           </h2>
           <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400"></div>
@@ -43,22 +43,23 @@ const PillarsSection = () => {
           {pillars.map((item, index) => (
             <Card
               key={index}
-              className="h-full rounded-2xl shadow-lg text-center p-4 bg-white border border-green-100"
+              className="h-full rounded-2xl shadow-lg text-center p-4 bg-white border border-green-100 hover:shadow-2xl transition-all duration-300 hover:bg-green-50 hover:-translate-y-1"
             >
               <CardContent className="flex flex-col items-center">
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="w-12 h-12 mb-2 object-contain inline-block"
+                  className="w-12 h-12 mb-2 object-contain inline-block transition-transform duration-300 hover:scale-110"
                 />
-                <h3 className="text-lg md:text-xl font-bold text-green-700 mb-1">{item.title}</h3>
-                <p className="text-gray-700 text-sm md:text-base mb-3 flex-1">{item.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-green-700 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 text-sm md:text-base mb-3 flex-1">
+                  {item.desc}
+                </p>
               </CardContent>
               <CardFooter className="flex justify-center pt-0">
-                <Button
-                  className="bg-gradient-to-r from-green-600 to-green-400 text-white rounded-md text-base font-semibold hover:from-green-700 hover:to-green-500 transition-colors"
-                  style={{ textTransform: "none" }}
-                >
+                <Button className="bg-gradient-to-r from-green-600 to-green-400 text-white rounded-md text-base font-semibold transition-all duration-100 hover:from-green-500 hover:to-green-300 hover:scale-105 active:scale-95 hover:shadow-lg">
                   Read more
                 </Button>
               </CardFooter>

@@ -21,7 +21,7 @@ const ClientCarousel = ({
   );
 
   return (
-    <section className="w-full py-16 px-4 bg-gradient-to-b from-white via-green-50/40 to-white">
+    <section className="w-full py-8 px-4 bg-gradient-to-b from-white via-green-50/40 to-white">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 text-center mb-3">
           {title}
@@ -53,7 +53,7 @@ const ClientCarousel = ({
               {items.map((item, idx) => (
                 <CarouselItem
                   key={item.alt || idx}
-                  className="pl-4 md:basis-1/4 sm:basis-1/3 basis-1/2 py-4"
+                  className="pl-4 lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full py-4"
                 >
                   <div
                     className={`bg-gradient-to-b from-white to-green-50/30 rounded-2xl shadow-md hover:shadow-xl flex flex-col ${

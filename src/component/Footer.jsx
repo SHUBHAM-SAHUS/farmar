@@ -34,7 +34,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer
-      className="w-full bg-green-100 relative border-t-2 border-green-400"
+      className="w-full bg-green-100 relative border-t border-green-400"
       style={{
         backgroundImage: "url('/assets/FooterBackground.webp')",
         backgroundSize: "cover",

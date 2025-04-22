@@ -23,7 +23,7 @@ const FPOSection = () => {
           <div className="w-12 sm:w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400 mx-auto mb-6 sm:mb-8" />
         </div>
 
-        <div className="flex flex-col gap-6 md:gap-8 gap-12">
+        <div className="flex flex-col gap-6 md:gap-8 ">
           {/* First Row */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:items-center items-start mb-4">
             <div className="w-full md:w-1/2">

@@ -13,7 +13,7 @@ const productLogos = [
     alt: "Green Chilli Powder",
   },
   { src: "/assets/product-images/Red-Chilli-1.webp", alt: "Red Chilli" },
-  { src: "/assets/product-images/Roger-768x768.webp", alt: "Roger" },
+  { src: "/assets/product-images/Super-768x768.webp", alt: "Roger" },
   {
     src: "/assets/product-images/TG-Dark-Red-768x768.webp",
     alt: "TG Dark Red",
@@ -26,11 +26,14 @@ const productLogos = [
 
 const ProductsCarouselSection = () => {
   return (
+    <div className="mb-8">
+
     <ClientCarousel
       items={productLogos}
       showLabels={false}
       title="Our Products"
-    />
+      />
+      </div>
   );
 };
 

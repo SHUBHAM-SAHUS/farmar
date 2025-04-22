@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Box, IconButton } from '@mui/material';
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = ['/assets/SliderImage01.JPG', '/assets/SliderImage02.JPG', '/assets/SliderImage03.JPG'];
 
-const Carousel = () => {
+const DashboardSlider = () => {
   const [current, setCurrent] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -27,65 +28,42 @@ const Carousel = () => {
   };
 
   return (
-    <Box sx={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden', borderRadius: 2 }}>
-      <Box
-        component='img'
-        src={images[current]}
-        alt={`slide-${current}`}
-        sx={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          display: 'block',
-        }}
-      />
-
-      {/* Dark fade overlay */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'black',
-          opacity: fade ? 0.7 : 0,
-          transition: 'opacity 0.5s ease-in-out',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <IconButton
-        onClick={handlePrev}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '20px',
-          transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          color: 'white',
-          '&:hover': { backgroundColor: 'rgba(0,0,0,0.7)' },
-        }}
-      >
-        <ArrowBackIos />
-      </IconButton>
-
-      <IconButton
-        onClick={handleNext}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          right: '20px',
-          transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          color: 'white',
-          '&:hover': { backgroundColor: 'rgba(0,0,0,0.7)' },
-        }}
-      >
-        <ArrowForwardIos />
-      </IconButton>
-    </Box>
+    <div className="w-full flex justify-center items-center py-8">
+      <div className="relative w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl h-[200px] sm:h-[260px] md:h-[320px] lg:h-[500px] rounded-3xl overflow-hidden shadow-xl">
+        {/* Sliding Image */}
+        <div className={`w-full h-full transition-opacity duration-500 ${fade ? 'opacity-60' : 'opacity-100'}`}>
+          <Image
+            src={images[current]}
+            alt={`slide-${current}`}
+            fill
+            className="object-cover"
+            style={{ zIndex: 1 }}
+            priority
+          />
+        </div>
+        {/* Green Gradient Overlay at Bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-16 sm:h-20 md:h-24 bg-gradient-to-t from-green-600/80 to-transparent z-10 pointer-events-none" />
+        {/* Left Arrow */}
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-white/80 hover:bg-white z-20 shadow"
+          onClick={handlePrev}
+        >
+          <ChevronLeft className="text-green-700" />
+        </Button>
+        {/* Right Arrow */}
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-white/80 hover:bg-white z-20 shadow"
+          onClick={handleNext}
+        >
+          <ChevronRight className="text-green-700" />
+        </Button>
+      </div>
+    </div>
   );
 };
 
-export default Carousel;
+export default DashboardSlider;

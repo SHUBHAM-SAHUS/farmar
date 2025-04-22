@@ -1,110 +1,59 @@
 'use client';
 
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
-import GroupsIcon from '@mui/icons-material/Groups';
-import AgricultureIcon from '@mui/icons-material/Agriculture';
-import TerrainIcon from '@mui/icons-material/Terrain';
-import PublicIcon from '@mui/icons-material/Public';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
-import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import {
+  Users,
+  Tractor,
+  Mountain,
+  Globe,
+  Smile,
+  CalendarCheck
+} from 'lucide-react';
 
 const statsData = [
-  { icon: <GroupsIcon sx={{ fontSize: 40, color: 'white' }} />, number: '7,000+', label: 'Registered Farmers' },
-  { icon: <AgricultureIcon sx={{ fontSize: 40, color: 'white' }} />, number: '15,000+', label: 'Acres of land' },
-  { icon: <TerrainIcon sx={{ fontSize: 40, color: 'white' }} />, number: '180+', label: 'Villages covered' },
-  { icon: <PublicIcon sx={{ fontSize: 40, color: 'white' }} />, number: '15+', label: 'Countries served' },
-  { icon: <EmojiPeopleIcon sx={{ fontSize: 40, color: 'white' }} />, number: '100+', label: 'Customers worldwide' },
-  { icon: <EventAvailableIcon sx={{ fontSize: 40, color: 'white' }} />, number: '3+', label: 'Years in the industry' },
+  { icon: Users, number: '7,000+', label: 'Registered Farmers' },
+  { icon: Tractor, number: '15,000+', label: 'Acres of Land' },
+  { icon: Mountain, number: '180+', label: 'Villages Covered' },
+  { icon: Globe, number: '15+', label: 'Countries Served' },
+  { icon: Smile, number: '100+', label: 'Customers Worldwide' },
+  { icon: CalendarCheck, number: '3+', label: 'Years in Industry' },
 ];
 
-const StatsSection = () => {
+const WelcomeBoard = () => {
   return (
-    <Box
-      sx={{
-        py: 6,
-        px: 2,
-        textAlign: 'center',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <Typography
-        variant='h4'
-        align='center'
-        gutterBottom
-        sx={{
-          fontWeight: 'bold',
-          color: '#2c3e50',
-          mb: 5,
-          '&::after': {
-            content: '""',
-            display: 'block',
-            width: '60px',
-            height: '3px',
-            backgroundColor: '#6B8E23',
-            margin: '8px auto 0',
-          },
-        }}
-      >
-        Welcome to our Website
-      </Typography>
+    <section className="w-full py-8 px-2 bg-gradient-to-b from-white via-green-50 to-white">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        {/* Heading */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 text-center mb-2">
+          Welcome to our Website
+        </h2>
+        <div className="w-12 sm:w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400 mb-8 sm:mb-12" />
 
-      <Grid container spacing={4} justifyContent='center'>
-        {statsData.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
+        {/* Stats Grid */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-12 w-full">
+          {statsData.map((item, idx) => (
+            <div
+              key={item.label}
+              className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-green-100 p-5 sm:p-6 hover:scale-105 transition-transform w-56 sm:w-48 md:w-56 lg:w-64 xl:w-72"
             >
-              <Box
-                sx={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: 2,
-                  backgroundColor: '#5ca545',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {item.icon}
-              </Box>
-
-              <Typography
-                variant='h5'
-                sx={{
-                  mt: 2,
-                  color: '#5ca545',
-                  fontWeight: 'bold',
-                }}
-              >
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-green-600 to-green-400 shadow text-white mb-3 sm:mb-4">
+                {React.createElement(item.icon, {
+                  size: 32,
+                  className: "sm:size-36",
+                })}
+              </div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-1">
                 {item.number}
-              </Typography>
-
-              <Typography
-                variant='subtitle1'
-                sx={{
-                  mt: 1,
-                  color: '#000',
-                  fontWeight: '600',
-                }}
-              >
+              </div>
+              <div className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 text-center">
                 {item.label}
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default StatsSection;
+export default WelcomeBoard;

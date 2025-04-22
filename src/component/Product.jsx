@@ -1,127 +1,75 @@
-import { Card, CardMedia, Typography, Box } from '@mui/material';
-import SpaIcon from '@mui/icons-material/Spa';
+"use client";
+import React from "react";
+// If you have shadcn/ui Card, Button, etc. import them here
+// import { Card, CardContent } from "@/components/ui/card";
+import SpaIcon from "@mui/icons-material/Spa"; // You can replace with Lucide or Heroicons if desired
 
 const cardData = [
   {
-    title: 'Card 1 Title',
-    content: 'This is the content for card 1.',
-    backgroundImage: '/assets/Product01.webp',
+    title: "Card 1 Title",
+    content: "This is the content for card 1.",
+    backgroundImage: "/assets/Product01.webp",
   },
   {
-    title: 'Card 2 Title',
-    content: 'This is the content for card 2.',
-    backgroundImage: '/assets/Product02.webp',
+    title: "Card 2 Title",
+    content: "This is the content for card 2.",
+    backgroundImage: "/assets/Product02.webp",
   },
   {
-    title: 'Card 3 Title',
-    content: 'This is the content for card 3.',
-    backgroundImage: '/assets/Product03.webp',
+    title: "Card 3 Title",
+    content: "This is the content for card 3.",
+    backgroundImage: "/assets/Product03.webp",
   },
   {
-    title: 'Card 4 Title',
-    content: 'This is the content for card 4.',
-    backgroundImage: '/assets/Product04.webp',
+    title: "Card 4 Title",
+    content: "This is the content for card 4.",
+    backgroundImage: "/assets/Product04.webp",
   },
 ];
 
-const CardComponent = () => {
+const Product = () => {
   return (
-    <Box sx={{ maxWidth: '1200px', width: '100%', margin: '50px auto' }}>
-        <Typography
-             variant='h4'
-             align='center'
-             gutterBottom
-             sx={{
-               fontWeight: 'bold',
-               color: '#2c3e50',
-               mb: 5,
-               '&::after': {
-                 content: '""',
-                 display: 'block',
-                 width: '60px',
-                 height: '3px',
-                 backgroundColor: '#6B8E23',
-                 margin: '8px auto 0',
-               },
-             }}
-           >
-             Our Products
-           </Typography>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(3, 1fr)',
-            lg: 'repeat(4, 1fr)',
-          },
-          gap: 2,
-          padding: { xs: 1, sm: 2, md: 3 },
-        }}
-      >
-        {cardData.map((card, index) => (
-          <Card
-            key={index}
-            sx={{
-              borderRadius: '10px',
-              overflow: 'hidden',
-              position: 'relative',
-              boxShadow: '10px 12px 4px rgba(0, 0, 0, 0.46)', // stronger shadow
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease', // smooth hover effect
-              '&:hover': {
-                transform: 'translateY(-8px)', // subtle lift on hover
-                boxShadow: '0 12px 13px rgba(0, 0, 0, 0.3)', // deeper shadow on hover
-              },
-            }}
-          >
-            <CardMedia
-              sx={{
-                position: 'relative',
-                width: '100%',
-                height: { xs: '250px', sm: '300px', md: '350px' },
-              }}
+    <section className="w-full py-12 mb-8 px-2 bg-gradient-to-b from-white via-green-50 to-white">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        {/* Heading */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 text-center mb-2">
+          Our Products
+        </h2>
+        <div className="w-12 sm:w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400 mb-8 sm:mb-12" />
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+          {cardData.map((card, idx) => (
+            <div
+              key={idx}
+              className="relative rounded-2xl shadow-lg border border-green-100 bg-white overflow-hidden flex flex-col group transition-transform hover:scale-[1.03] hover:shadow-2xl"
             >
-              <img
-                src={card.backgroundImage}
-                alt={`Background image ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'rgba(0, 0, 0, 0.4)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  color: '#fff',
-                  padding: 2,
-                  textAlign: 'center',
-                }}
-              >
-                <SpaIcon sx={{ fontSize: 40, marginBottom: '10px', color: '#fff' }} />
-                <Typography variant='h6' sx={{ fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' } }}>
-                  {card.title}
-                </Typography>
-                <Typography variant='body2' sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' } }}>
-                  {card.content}
-                </Typography>
-              </Box>
-            </CardMedia>
-          </Card>
-        ))}
-      </Box>
-    </Box>
+              {/* Image with overlay */}
+              <div className="relative w-full h-48 sm:h-56 md:h-64">
+                <img
+                  src={card.backgroundImage}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex flex-col justify-end items-center p-4">
+                  <SpaIcon
+                    className="text-white mb-2"
+                    style={{ fontSize: 36 }}
+                  />
+                  <div className="text-lg sm:text-xl font-bold text-white drop-shadow mb-1">
+                    {card.title}
+                  </div>
+                  <div className="text-xs sm:text-sm text-white/90">
+                    {card.content}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default CardComponent;
+export default Product;

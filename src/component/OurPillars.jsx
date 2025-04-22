@@ -1,111 +1,72 @@
-import React from 'react';
-import { Box, Typography, Card, CardContent, Button } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import React from "react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const pillars = [
+  {
+    title: "Farmers Support",
+    desc: "Farmer support includes resources, training, and assistance to boost productivity and sustainability, offering financial aid, technology, expert advice, and market guidance.",
+    icon: "/assets/ourPillar01.webp",
+  },
+  {
+    title: "Farm-to-fork traceability",
+    desc: "Our farmers see what happens with their produce after it leaves their farm, and our consumers see details about their food, their farmer, and what happens with the money they pay.",
+    icon: "/assets/ourPillar02.webp",
+  },
+  {
+    title: "IPM Farming",
+    desc: "Residue-free products and practices tackle soil, pest, disease, and nutrition issues sustainably, boosting crop productivity and quality without harmful chemicals. This is called integrated pest management.",
+    icon: "/assets/ourPillar03.webp",
+  },
+  {
+    title: "Infrastructure",
+    desc: "Infrastructure support for farmers includes developing essential facilities like irrigation systems, storage units, and transportation networks to improve productivity and efficiency.",
+    icon: "/assets/ourPillar04.webp",
+  },
+];
 
 const PillarsSection = () => {
   return (
-    <Box
-      sx={{
-        backgroundImage: `url('/assets/ourPillarBackground.webp')`, //
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        py: 8,
-        px: 2,
-      }}
+    <div
+      className="py-16 px-2 bg-cover bg-center bg-fixed mt-8"
+      style={{ backgroundImage: "url('/assets/ourPillarBackground.webp')" }}
     >
-      <Typography
-        variant='h4'
-        align='center'
-        gutterBottom
-        sx={{
-          fontWeight: 'bold',
-          color: '#fff',
-          mb: 5,
-          '&::after': {
-            content: '""',
-            display: 'block',
-            width: '60px',
-            height: '3px',
-            backgroundColor: '#6B8E23',
-            margin: '8px auto 0',
-          },
-        }}
-      >
-        Our Pillars
-      </Typography>
+      <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto">
+        <div className="relative mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-2 drop-shadow-lg">
+            Our Pillars
+          </h2>
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400"></div>
+        </div>
 
-      <Grid container spacing={4}>
-        {[
-          {
-            title: 'Farmers Support',
-            desc: 'Farmer support includes resources, training, and assistance to boost productivity and sustainability, offering financial aid, technology, expert advice, and market guidance.',
-            icon: '/assets/ourPillar01.webp',
-          },
-          {
-            title: 'Farm-to-fork traceability',
-            desc: 'Our farmers see what happens with their produce after it leaves their farm, and our consumers see details about their food, their farmer, and what happens with the money they pay.',
-            icon: '/assets/ourPillar02.webp',
-          },
-          {
-            title: 'IPM Farming',
-            desc: 'Residue-free products and practices tackle soil, pest, disease, and nutrition issues sustainably, boosting crop productivity and quality without harmful chemicals. This is called integrated pest management.',
-            icon: '/assets/ourPillar03.webp',
-          },
-          {
-            title: 'Infrastructure',
-            desc: 'Infrastructure support for farmers includes developing essential facilities like irrigation systems, storage units, and transportation networks to improve productivity and efficiency.',
-            icon: '/assets/ourPillar04.webp',
-          },
-        ].map((item, index) => (
-          <Grid size={{ xs: 12, md: 4, lg: 3 }} key={index}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {pillars.map((item, index) => (
             <Card
-              sx={{
-                height: '100%',
-                borderRadius: 3,
-                boxShadow: 3,
-                textAlign: 'center',
-                p: 2,
-              }}
+              key={index}
+              className="h-full rounded-2xl shadow-lg text-center p-4 bg-white border border-green-100"
             >
-              <CardContent>
-                <Box
-                  component='img'
+              <CardContent className="flex flex-col items-center">
+                <img
                   src={item.icon}
                   alt={item.title}
-                  sx={{
-                    width: '40px',
-                    height: '40px',
-                    mb: 2,
-                    objectFit: 'contain',
-                    display: 'inline-block',
-                  }}
+                  className="w-12 h-12 mb-2 object-contain inline-block"
                 />
-
-                <Typography variant='h6' gutterBottom sx={{ fontWeight: 'bold' }}>
-                  {item.title}
-                </Typography>
-                <Typography variant='body2' sx={{ mb: 3 }}>
-                  {item.desc}
-                </Typography>
-
+                <h3 className="text-lg md:text-xl font-bold text-green-700 mb-1">{item.title}</h3>
+                <p className="text-gray-700 text-sm md:text-base mb-3 flex-1">{item.desc}</p>
+              </CardContent>
+              <CardFooter className="flex justify-center pt-0">
                 <Button
-                  variant='contained'
-                  sx={{
-                    backgroundColor: '#6B8E23',
-                    textTransform: 'none',
-                    borderRadius: 1,
-                    '&:hover': { backgroundColor: '#557a1f' },
-                  }}
+                  className="bg-gradient-to-r from-green-600 to-green-400 text-white rounded-md text-base font-semibold hover:from-green-700 hover:to-green-500 transition-colors"
+                  style={{ textTransform: "none" }}
                 >
                   Read more
                 </Button>
-              </CardContent>
+              </CardFooter>
             </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

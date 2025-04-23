@@ -62,7 +62,7 @@ const DashboardSlider = () => {
         // onMouseEnter={() => setIsPaused(true)}
         // onMouseLeave={() => setIsPaused(false)}
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.div
             key={current}
             initial={{ opacity: 0 }}

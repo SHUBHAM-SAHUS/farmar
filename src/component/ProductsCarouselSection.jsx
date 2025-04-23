@@ -2,10 +2,10 @@ import React from "react";
 import ClientCarousel from "./ClientCarousel";
 
 const productLogos = [
-  {
-    src: "/assets/product-images/Bhima-kiran-768x768.webp",
-    alt: "Bhima Kiran",
-  },
+  // {
+  //   src: "/assets/product-images/Bhima-Kiran.webp",
+  //   alt: "Bhima Kiran",
+  // },
   { src: "/assets/product-images/Corinader-1.webp", alt: "Coriander" },
   { src: "/assets/product-images/Garma-Masala-1.webp", alt: "Garam Masala" },
   {

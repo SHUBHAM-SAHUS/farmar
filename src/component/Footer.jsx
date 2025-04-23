@@ -58,13 +58,18 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex flex-col items-start justify-start col-span-1">
             <Image
-              src="/assets/MainLogo.webp"
+              src="/assets/LOGO/logo2.png"
               alt="TerraGlebe Logo"
-              width={180}
-              height={60}
-              className="mb-2"
+              width={140}
+              height={46}
+              className="mb-3"
               priority
             />
+            <h3 className="text-green-800 font-semibold text-sm leading-tight">
+              RamRahim Pragati Producer
+              <br />
+              Company Limited
+            </h3>
           </div>
           {/* Contact Us */}
           <div className="flex flex-col gap-2 col-span-1">
@@ -73,20 +78,18 @@ const Footer = () => {
             </h3>
             <div className="flex items-center gap-2 text-green-700">
               <Send size={18} />
-              <span className="text-gray-800 text-sm">
-                terraglebe@gmail.com
-              </span>
+              <span className="text-gray-800 text-sm">ramrahim@gmail.com </span>
             </div>
             <div className="flex items-center gap-2 text-green-700">
               <Phone size={18} />
-              <span className="text-gray-800 text-sm">+91 089640 87240</span>
+              <span className="text-gray-800 text-sm">+91 88776 422233</span>
             </div>
             <div className="flex items-start gap-2 text-green-700">
               <MapPin size={18} className="mt-1" />
               <span className="text-gray-800 text-sm">
-                Shrinath Colony, 13/a, Diversion Rd, Saraswati Nagar,
+                101, RAM RAHIM PRAGATI AARIYA, BAGLI,
                 <br />
-                Khargone, Madhya Pradesh 451001
+                Dewas, Madhya Pradesh, 455227.
               </span>
             </div>
           </div>

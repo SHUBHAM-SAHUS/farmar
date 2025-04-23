@@ -166,14 +166,15 @@ function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* LOGO + NAV LEFT */}
-          <div className="flex items-center gap-8 flex-1">
-            <Link href="/" passHref>
+          <div className="flex items-center gap-8 flex-1 relative h-full">
+            <Link href="/" passHref className="h-full flex relative">
               <Image
-                src="/assets/MainLogo.webp"
+                src="/assets/LOGO/logo2.png"
                 alt="Logo"
-                width={120}
+                width={60}
                 height={60}
                 priority
+                className="h-full object-contain"
               />
             </Link>
           </div>

@@ -7,7 +7,7 @@ const cardData = [
     title: "Card 1 Title",
     content: "This is the content for card 1.",
     backgroundImage: "/assets/Product01.webp",
-    link: "/products/1", // optional link
+    // link: "/products/1", // optional link
   },
   {
     title: "Card 2 Title",

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-// import { type CarouselApi } from "@/components/ui/carousel";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -33,7 +33,7 @@ const ClientCarousel = ({
           <Button
             variant="secondary"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2  bg-gray-100 hover:bg-green-200 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2  bg-green-100 hover:bg-green-200 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
             onClick={() => api?.scrollPrev()}
           >
             <ChevronLeft className="text-green-700 w-5 h-5" />
@@ -60,12 +60,14 @@ const ClientCarousel = ({
                       showLabels ? "h-52 md:h-56" : "h-44 md:h-48"
                     } transition-all duration-300 hover:scale-105 border border-green-200 mx-auto overflow-hidden group`}
                   >
-                    <div className="flex-1 flex items-center justify-center p-4 md:p-6 group-hover:bg-white/80 transition-colors duration-300">
-                      <img
+                    <div className="flex-1 flex items-center justify-center p-4 md:p-6 group-hover:bg-white/80 transition-colors duration-300 relative">
+                      <Image
                         src={item.src}
                         alt={item.alt}
-                        className="object-contain max-h-28 md:max-h-32 w-auto max-w-[85%] transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 768px) 85vw, (max-width: 1200px) 40vw, 25vw"
+                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                        priority={idx < 2}
                       />
                     </div>
                     {showLabels && (

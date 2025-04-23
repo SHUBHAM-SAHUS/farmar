@@ -3,7 +3,7 @@ import ClientCarousel from "./ClientCarousel";
 
 const licenceLogo = [
   { src: "/assets/licences-images/alpine.webp", alt: "Alpine" },
-  { src: "/assets/licences-images/apeda-seexlogo.com.webp", alt: "APEDA" },
+  { src: "/assets/licences-images/apeda-seeklogo.webp", alt: "APEDA" },
   { src: "/assets/licences-images/covestro1-1.webp", alt: "Covestro" },
   { src: "/assets/licences-images/dgft.webp", alt: "DGFT" },
   { src: "/assets/licences-images/ecgc.webp", alt: "ECGC" },

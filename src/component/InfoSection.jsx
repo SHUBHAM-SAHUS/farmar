@@ -6,11 +6,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 
 const features = [
-  "Spread Awareness in Residue Free farming (IPM)",
-  "Enhancement in income of the Small Scale Farmers",
-  "To Make Brand of the Farmers Base Company.",
-  "Export and Domestic Supply by Farmer Directly.",
-  "To Make Brand of the Farmers Base Company.",
+  "Enhancing the income and livelihoods of our member farmers.",
+  "Promoting sustainable and residue-free farming practices.",
+  "Facilitating direct market access, including domestic and export.",
+  "Providing vital support: technical guidance, inputs, and marketing.",
 ];
 
 const FPOSection = () => {
@@ -68,17 +67,18 @@ const FPOSection = () => {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
             >
               <h3 className="text-xl sm:text-2xl font-semibold text-green-700 mb-3">
-                Farmer Producer Organization
+                RamRahim Pragati Producer Company Limited{" "}
               </h3>
               <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-                A Farmer Producer Organization (FPO) is{" "}
+                Based in Madhya Pradesh, RamRahim Pragati Producer Company
+                Limited{" "}
                 <span className="text-green-700 font-semibold">
-                  a group of farmers who produce agricultural products.
+                  is a farmer-owned organization{" "}
                 </span>{" "}
-                The Small Farmers’ Agribusiness Consortium (SFAC) is responsible
-                for supporting state governments in the formation of FPOs. The
-                Government of India also launched a scheme in 2020 to promote
-                and form 10,000 FPOs.
+                focused on empowering our members. We work collectively across
+                dairy, diverse crops (horticulture, vegetables, etc.), animal
+                husbandry, and agro-inputs, managing activities from production
+                to marketing to boost farmer livelihoods.
               </p>
             </motion.div>
           </div>

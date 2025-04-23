@@ -13,12 +13,12 @@ const spices = [
     image: "/assets/product-images/Red-Chilli-1.webp",
     description: "Fiery red chilli powder to spice up your dishes.",
   },
-  {
-    name: "Kashmiri Mirch",
-    category: "Mirch",
-    image: "/assets/product-images/kashmiri.webp",
-    description: "Mild Kashmiri mirch with vibrant color and aroma.",
-  },
+  // {
+  //   name: "Kashmiri Mirch",
+  //   category: "Mirch",
+  //   image: "/assets/product-images/kashmiri.webp",
+  //   description: "Mild Kashmiri mirch with vibrant color and aroma.",
+  // },
   {
     name: "Green Chilli",
     category: "Powder",

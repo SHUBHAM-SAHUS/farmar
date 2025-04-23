@@ -16,7 +16,7 @@ const spices = [
   // {
   //   name: "Kashmiri Mirch",
   //   category: "Mirch",
-  //   image: "/assets/product-images/kashmiri.webp",
+  //   image: "/assets/product-images/Kashmiri.webp",
   //   description: "Mild Kashmiri mirch with vibrant color and aroma.",
   // },
   {

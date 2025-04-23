@@ -16,7 +16,7 @@ const ProductCard = ({ title, content, backgroundImage, link }) => {
           <div className="text-lg sm:text-xl font-bold text-white drop-shadow mb-1">
             {title}
           </div>
-          <div className="text-xs sm:text-sm text-white/90">{content}</div>
+          <div className="text-xs sm:text-sm text-white/90 text-center">{content}</div>
         </div>
       </div>
     </div>

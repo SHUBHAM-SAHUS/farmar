@@ -869,6 +869,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-aspect-ratio@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@radix-ui/react-aspect-ratio@npm:1.1.4"
+  dependencies:
+    "@radix-ui/react-primitive": "npm:2.1.0"
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 10c0/57d326fadbdb8490c60d0dee7d65461de43fba7ac32f6eccf0cebdea2605d93c44cd9a5f6acbb633ba8110dfc0e3b64cd27d7daeb89bb986a602f03a326e486d
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-collection@npm:1.1.4":
   version: 1.1.4
   resolution: "@radix-ui/react-collection@npm:1.1.4"
@@ -2601,6 +2620,7 @@ __metadata:
     "@emotion/styled": "npm:^11.14.0"
     "@mui/icons-material": "npm:^7.0.2"
     "@mui/material": "npm:^7.0.2"
+    "@radix-ui/react-aspect-ratio": "npm:^1.1.4"
     "@radix-ui/react-dialog": "npm:^1.1.10"
     "@radix-ui/react-dropdown-menu": "npm:^2.1.11"
     "@radix-ui/react-slot": "npm:^1.2.0"

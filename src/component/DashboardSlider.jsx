@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
   "/assets/SliderImage01.JPG",
-  "/assets/SliderImage04.JPG",
+  "/assets/SliderImage04.jpg",
   "/assets/SliderImage03.jpg",
 ];
 

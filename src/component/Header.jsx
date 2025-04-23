@@ -77,38 +77,57 @@ const DesktopDropdown = ({ text, items, path = "/" }) => {
   );
 };
 // Reusable Mobile Dropdown Component
-const MobileDropdown = ({ text, items, onClose }) => (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
+const MobileDropdown = ({ text, items, path = "/", onClose }) => {
+  const [open, setOpen] = React.useState(false);
+  const router = useRouter();
+  const iconRef = React.useRef(null);
+
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    if (iconRef.current && iconRef.current.contains(e.target)) {
+      setOpen(!open);
+    } else {
+      router.push(path);
+      onClose();
+    }
+  };
+
+  return (
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <Button
         variant="ghost"
         className="flex items-center font-semibold text-lg text-[var(--grey)] w-full justify-start"
+        onClick={handleButtonClick}
       >
         {text}
-        <svg width="20" height="20" fill="none" className="ml-1">
-          <path
-            d="M6 8l4 4 4-4"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <div ref={iconRef} className="ml-1">
+          <DropdownMenuTrigger asChild>
+            <svg width="20" height="20" fill="none">
+              <path
+                d="M6 8l4 4 4-4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </DropdownMenuTrigger>
+        </div>
       </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent side="bottom" className="z-[1001]" align="start">
-      {items.map((item) => (
-        <DropdownMenuItem key={item.text || item} asChild onClick={onClose}>
-          <Link href={item.path || "/"} passHref>
-            <span className="font-semibold text-lg text-gray-700 cursor-pointer">
-              {item.text || item}
-            </span>
-          </Link>
-        </DropdownMenuItem>
-      ))}
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
+      <DropdownMenuContent side="bottom" className="z-[1001]" align="start">
+        {items.map((item) => (
+          <DropdownMenuItem key={item.text || item} asChild onClick={onClose}>
+            <Link href={item.path || "/"} passHref>
+              <span className="font-semibold text-lg text-gray-700 cursor-pointer">
+                {item.text || item}
+              </span>
+            </Link>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const pages = [
   { text: "Home", path: "/" },
@@ -227,6 +246,7 @@ function Header() {
                           key={page.text}
                           text={page.text}
                           items={page.dropdownItems}
+                          path="/products"
                           onClose={() => setIsOpen(false)}
                         />
                       );

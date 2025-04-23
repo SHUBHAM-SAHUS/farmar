@@ -34,7 +34,7 @@ const DashboardSlider = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center md:pb-8 md:pt-4 md:px-4 p-2">
       <div
-        className="relative w-full xl:w-full h-[500px] sm:h-[560px] md:h-[650px] lg:h-[500px] md:rounded-3xl rounded-xl overflow-hidden shadow-b-xl bg-green-200"
+        className="relative w-full xl:w-full h-[500px] sm:h-[560px] md:h-[650px] lg:h-[600px] md:rounded-3xl rounded-xl overflow-hidden shadow-b-xl bg-green-200"
         style={{ boxShadow: "0 20px 50px 0px rgba(0, 0, 0, 0.6)" }}
       >
         {/* Sliding Image */}

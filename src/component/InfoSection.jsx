@@ -1,17 +1,27 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import { CheckCircle } from 'lucide-react';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 const features = [
-  'Spread Awareness in Residue Free farming (IPM)',
-  'Enhancement in income of the Small Scale Farmers',
-  'To Make Brand of the Farmers Base Company.',
-  'Export and Domestic Supply by Farmer Directly.',
-  'To Make Brand of the Farmers Base Company.',
+  "Spread Awareness in Residue Free farming (IPM)",
+  "Enhancement in income of the Small Scale Farmers",
+  "To Make Brand of the Farmers Base Company.",
+  "Export and Domestic Supply by Farmer Directly.",
+  "To Make Brand of the Farmers Base Company.",
 ];
 
 const FPOSection = () => {
+  const firstRowRef = React.useRef(null);
+  const secondRowRef = React.useRef(null);
+  const isFirstRowInView = useInView(firstRowRef, { once: true, amount: 0.2 });
+  const isSecondRowInView = useInView(secondRowRef, {
+    once: true,
+    amount: 0.2,
+  });
+
   return (
     <section className="w-full py-8 px-2 bg-gradient-to-b from-white via-green-50 to-white">
       <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto">
@@ -23,10 +33,22 @@ const FPOSection = () => {
           <div className="w-12 sm:w-16 h-1 rounded-full bg-gradient-to-r from-green-600 to-green-400 mx-auto mb-6 sm:mb-8" />
         </div>
 
-        <div className="flex flex-col gap-6 md:gap-8 ">
+        <div className="flex flex-col gap-6 md:gap-8">
           {/* First Row */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:items-center items-start mb-4">
-            <div className="w-full md:w-1/2">
+          <div
+            ref={firstRowRef}
+            className="flex flex-col md:flex-row gap-8 md:gap-16 lg:items-center items-start mb-4"
+          >
+            <motion.div
+              className="w-full md:w-1/2"
+              initial={{ x: -100, opacity: 0 }}
+              animate={
+                isFirstRowInView
+                  ? { x: 0, opacity: 1 }
+                  : { x: -100, opacity: 0 }
+              }
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               <div className="relative w-full h-40 xs:h-48 sm:h-56 md:h-72 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/assets/SliderImage01.JPG"
@@ -36,8 +58,15 @@ const FPOSection = () => {
                   priority
                 />
               </div>
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 flex flex-col justify-center mt-6 md:mt-0"
+              initial={{ x: 100, opacity: 0 }}
+              animate={
+                isFirstRowInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }
+              }
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
               <h3 className="text-xl sm:text-2xl font-semibold text-green-700 mb-3">
                 Farmer Producer Organization
               </h3>
@@ -51,11 +80,23 @@ const FPOSection = () => {
                 Government of India also launched a scheme in 2020 to promote
                 and form 10,000 FPOs.
               </p>
-            </div>
+            </motion.div>
           </div>
           {/* Second Row */}
-          <div className="flex flex-col md:flex-row gap-8 lg:items-center items-start">
-            <div className="w-full md:w-1/2 order-1 md:order-0">
+          <div
+            ref={secondRowRef}
+            className="flex flex-col md:flex-row gap-8 lg:items-center items-start"
+          >
+            <motion.div
+              className="w-full md:w-1/2 order-1 md:order-0"
+              initial={{ x: -100, opacity: 0 }}
+              animate={
+                isSecondRowInView
+                  ? { x: 0, opacity: 1 }
+                  : { x: -100, opacity: 0 }
+              }
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               <ul className="space-y-4">
                 {features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
@@ -68,8 +109,17 @@ const FPOSection = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="w-full md:w-1/2 mt-6 md:mt-0 order-0 md:order-1">
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 mt-6 md:mt-0 order-0 md:order-1"
+              initial={{ x: 100, opacity: 0 }}
+              animate={
+                isSecondRowInView
+                  ? { x: 0, opacity: 1 }
+                  : { x: 100, opacity: 0 }
+              }
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
               <div className="relative w-full h-40 xs:h-48 sm:h-56 md:h-72 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/assets/SliderImage02.JPG"
@@ -79,7 +129,7 @@ const FPOSection = () => {
                   priority
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

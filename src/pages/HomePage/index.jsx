@@ -11,7 +11,7 @@ import ProductsCarouselSection from "@/component/ProductsCarouselSection";
 
 const HomePage = () => {
   return (
-    <div style={{ marginTop: "64px" }}>
+    <>
       <DashboardSlider />
       <WelcomeBoard />
       <InfoSection />
@@ -20,8 +20,7 @@ const HomePage = () => {
       <Product />
       <CertificationsCarouselSection />
       <ProductsCarouselSection />
-      <Footer />
-    </div>
+    </>
   );
 };
 

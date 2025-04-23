@@ -33,7 +33,7 @@ const ClientCarousel = ({
           <Button
             variant="secondary"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2  bg-gray-50 hover:bg-green-100 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2  bg-gray-100 hover:bg-green-200 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
             onClick={() => api?.scrollPrev()}
           >
             <ChevronLeft className="text-green-700 w-5 h-5" />
@@ -53,7 +53,7 @@ const ClientCarousel = ({
               {items.map((item, idx) => (
                 <CarouselItem
                   key={item.alt || idx}
-                  className="pl-4 lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full py-4"
+                  className="pl-4 lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full p-4"
                 >
                   <div
                     className={`bg-gradient-to-b from-white to-green-50/30 rounded-2xl shadow-md hover:shadow-xl flex flex-col ${
@@ -85,7 +85,7 @@ const ClientCarousel = ({
           <Button
             variant="secondary"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-50 hover:bg-green-100 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-green-100 hover:bg-green-200 shadow-lg rounded-full border border-green-300 z-20 w-10 h-10 transition-all duration-300 hover:scale-110"
             onClick={() => api?.scrollNext()}
           >
             <ChevronRight className="text-green-700 w-5 h-5" />
